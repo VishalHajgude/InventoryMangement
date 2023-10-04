@@ -21,6 +21,7 @@ public class InventoryService{
 		repo.save(item);
 		
 	}
+
 	
 	public Product get(long id) {
 		return repo.findById(id).get();

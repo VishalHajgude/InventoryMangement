@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -37,16 +38,18 @@ public class StuddentController {
 	@RequestMapping(value="/save", method = RequestMethod.POST)
    public String saveProduct(@ModelAttribute("produt") Product prd) {
 	service.save(prd);
-	return "index";
+	return "redirect:/";
 }
 	
-	@RequestMapping("/edit/{id}")
-	public ModelAndView showEditStuedentPage(@PathVariable(name="id") int id) {
-		ModelAndView mav = new ModelAndView("new");
-		Product prd = service.get(id);
-		mav.addObject("Product", prd);
-		return mav;
-	}
+    @RequestMapping("/edit/{id}")
+    public ModelAndView showEditStudentPage(@PathVariable(name = "id") int id) {
+        ModelAndView mav = new ModelAndView("new");
+        Product prd = service.get(id);
+        mav.addObject("product", prd);
+        return mav;
+        
+    }
+	
 	
 	@RequestMapping("/delete/{id}")
 		public String deletestudent (@PathVariable(name="id") int id) {
