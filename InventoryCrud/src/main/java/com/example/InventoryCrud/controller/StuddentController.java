@@ -36,7 +36,7 @@ public class StuddentController {
 	}
 	
 	@RequestMapping(value="/save", method = RequestMethod.POST)
-   public String saveProduct(@ModelAttribute("produt") Product prd) {
+   public String saveProduct(@ModelAttribute("product") Product prd) {
 	service.save(prd);
 	return "redirect:/";
 }
